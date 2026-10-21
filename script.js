@@ -1,7 +1,9 @@
 const menuBotao = document.getElementById("menuBotao");
 const menu = document.getElementById("menu");
-const interesseBotao = document.getElementById("interesseBotao");
-const mensagem = document.getElementById("mensagem");
+const formContato = document.getElementById("formContato");
+const statusFormulario = document.getElementById("statusFormulario");
+
+const emailEquipe = "jonathanschumacher118@gmail.com";
 
 menuBotao.addEventListener("click", function () {
     const aberto = menu.classList.toggle("aberto");
@@ -18,12 +20,7 @@ menu.querySelectorAll("a").forEach(function (link) {
     });
 });
 
-
-const formContato = document.getElementById("formContato");
-const statusFormulario = document.getElementById("statusFormulario");
-const emailEquipe = "jonathanschumacher118@gmail.com";
-
-formContato.addEventListener("submit", function(event) {
+formContato.addEventListener("submit", function (event) {
     event.preventDefault();
 
     if (!formContato.checkValidity()) {
@@ -35,7 +32,7 @@ formContato.addEventListener("submit", function(event) {
     const email = document.getElementById("email").value.trim();
     const instituicao = document.getElementById("instituicao").value.trim();
     const assunto = document.getElementById("assunto").value;
-    const mensagem = document.getElementById("mensagem").value.trim();
+    const textoMensagem = document.getElementById("mensagem").value.trim();
 
     const texto = `
 Nome: ${nome}
@@ -43,7 +40,7 @@ E-mail para resposta: ${email}
 Instituição/empresa: ${instituicao || "Não informado"}
 
 Mensagem:
-${mensagem}
+${textoMensagem}
 `;
 
     const linkEmail = "mailto:" + emailEquipe
@@ -55,7 +52,6 @@ ${mensagem}
 
     window.location.href = linkEmail;
 });
-
 
 const elementos = document.querySelectorAll(
     ".secao, .faixa-preco, .chamada, .problema"
